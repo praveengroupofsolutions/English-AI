@@ -8,7 +8,7 @@ const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
-
+const dashboardRoutes = require("./routes/dashboardRoutes");
 const app = express();
 
 app.use(cors());
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/users", userRoutes);
-
+app.use("/api/v1", dashboardRoutes);
 app.use((req, res) => {
   res.status(404).json({
     success: false,
